@@ -93,14 +93,14 @@ class AudioDetailsViewController: BaseViewController {
         mainView.onShare = {
             guard let app = AppManager.manager.appModel(), let appConfig = AppManager.manager.config(), let url = self.data?.url else { return }
             let appName = app.design?.appName ?? ""
-            var message = String(format: Localization.VideoList.Share.message, url, appName)
+            var message = String(format: Localization.Common.Share.Audio.message, url, appName)
             let showLink = app.design?.isShowLink ?? false
             if showLink {
                 let link = "https://ibuildapp.com/projects.php?action=info&projectid=\(appConfig.appID)"
                 message.append("\n")
-                message.append(String(format: Localization.VideoList.Share.link, appName, link))
+                message.append(String(format: Localization.Common.Share.link, appName, link))
                 message.append("\n")
-                message.append(Localization.VideoList.Share.postedVia)
+                message.append(Localization.Common.Share.postedVia)
             }
             
             let textToShare = [ message ]
